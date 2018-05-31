@@ -1,7 +1,5 @@
 class PostsController < ApplicationController
-
   before_action :set_post, only: [ :show, :update, :edit, :destroy ]
-
   def index
    @posts = Post.all
   end
@@ -27,7 +25,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to @posts_path
+    redirect_to posts_path
   end
 
   def update
@@ -45,6 +43,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-   params.require(:posts).permit(:title, :summary, :body)
+  params.require(:post).permit(:title, :summary, :body)
   end
 end

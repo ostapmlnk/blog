@@ -1,0 +1,15 @@
+ <article class="post">
+   <section class ="post-head">
+     <h2><%= link_to post.title, post_path(post) %> </h2>
+   <small>
+     <time><%= post.created_at.to_date.strftime("%D %B, %Y")%></time>
+     <br>
+     <%= link_to "Change", edit_post_path(post) %>
+|
+     <%= link_to "Delete", post_path(post), method: :delete, data: { confirm: "are you ?"} %>
+   </small>
+   </section>
+   <section class="post-summary">
+ <%= post.summary %>
+   </section>
+ </article>

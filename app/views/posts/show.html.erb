@@ -1,8 +1,19 @@
-<h1> <%= @post.title %> </h1>
-
-<%= link_to "Change", edit_post_path(@post) %>
-
-<%= link_to "Delete", post_path(@post), method: :delete, data: {confirm:"Are you shure?"} %>
-
-<p> <%= @post.body %> </p>
-
+<article class="post">
+  <section class ="post-head">
+    <h1><%= @post.title  %> </h1>
+    <small>
+     <h5>
+       <time><%= @post.created_at.to_date.strftime("%D %B, %Y")%></time>
+     </h5>
+      <br>
+      <%= link_to "Change", edit_post_path(@post), class: 'btn btn-outline-secondary' %>
+      |
+      <%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "are you ?"}, class: 'btn btn-outline-secondary' %>
+      |
+      <%= link_to "Back", :back, class: 'btn btn-primary'%>
+    </small>
+  </section>
+  <section class="post-body">
+   <h5><%= @post.body %></h5>
+  </section>
+</article>
